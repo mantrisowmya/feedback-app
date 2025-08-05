@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/script.js"></script>
+</head>
+<body>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div>
+          {% for category, message in messages %}
+            <div class="flash {{ category }}">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+    <h1 style="text-align: center;">Feedback Dashboard</h1>
+    <div class="nav">
+        <a href="/">Home</a>
+        <a href="/">Submit Feedback</a>
+        <a href="/admin-dashboard">Admin Dashboard</a>
+    </div>
+   <div class="main">
+     <div class="form">
+        <form action="/submit-feedback" method="post" onsubmit="return validateForm()">
+        <fieldset> 
+        <legend>Feedback</legend>
+            <div class="inputElements">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" placeholder="Enter your Name">
+            <span id="nameError" class="error"></span>
+        </div>
+        <div class="inputElements">
+            <label for="mail">Email *</label>
+            <input type="text" id="mail" name='mail' placeholder="Enter your Email">
+            <span id='mailError' class="error"></span>
+        </div>
+        <div class="inputElements">
+            <label for="rating">Rating *</label>
+            <input type="number" id="rating" name='rating' placeholder="Enter Rating(1-5)">
+            <span id='ratingError' class="error"></span>
+        </div>        
+        <div class="inputElements"> 
+            <label for="comments">Comments</label>
+            <textarea name="comments" id="comments"></textarea>
+        </div>
+        <button type="submit">Submit</button>
+        </fieldset>
+        
+    </form>
+    </div>
+
+   </div>
+    
+</body>
+</html>
