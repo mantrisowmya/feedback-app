@@ -1,26 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <style>
-        body{
+        body {
             margin: 0;
             padding: 0;
-            background-color: #f4f6f8 ;
+            background-color: #f4f6f8;
             font-family: Arial, Helvetica, sans-serif;
         }
-        h2,h3,h4{
+
+        h2,
+        h3,
+        h4 {
             text-align: center;
         }
-        .nav{
+
+        .nav {
             text-align: center;
             margin-bottom: 20px;
             padding: 10px 0;
         }
-        .nav a{
-            margin:8px 16px;
+
+        .nav a {
+            margin: 8px 16px;
             color: #000;
             font-size: 20px;
             cursor: pointer;
@@ -28,37 +34,60 @@
             transition: background-color 0.3s ease;
             border-radius: 4px;
             padding: 6px 12px;
-            
+
         }
-        .nav a:hover, button{
+
+        th,
+        td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ddd;
+            vertical-align: middle;
+            word-break: break-word;
+        }
+
+        td:nth-child(3) {
+            /* Email column */
+            max-width: 200px;
+        }
+
+        .nav a:hover,
+        button {
             background-color: #007bff;
             color: #f8f9fa;
         }
-        table,th, td{
-            border:2px solid #ccc;
+
+        table,
+        th,
+        td {
+            border: 2px solid #ccc;
             text-align: center;
             font-size: 20px;
             padding: 10px;
         }
-        table{
+
+        table {
             margin: auto;
             width: 80%;
             border-collapse: collapse;
             table-layout: fixed;
+            word-wrap: break-word;
             background-color: #fff;
 
         }
-        thead{
+
+        thead {
             background-color: #007bff;
             color: white;
         }
+
         .chart-container {
             display: flex;
             justify-content: center;
             align-items: flex-start;
             margin-top: 10PX;
             margin-bottom: 40px;
-            flex-wrap: wrap; 
+            flex-wrap: wrap;
             gap: 40PX;
             padding: 20px;
         }
@@ -69,34 +98,39 @@
             box-sizing: border-box;
             display: block;
         }
-        button{
+
+        button {
             justify-content: center;
-            margin:8px;
+            margin: 8px;
             transition: background-color 0.3s ease;
             border-radius: 4px;
             padding: 6px 12px;
             cursor: pointer;
         }
-        
-        .download{
+
+        .download {
             margin: 10px;
             align-items: center;
         }
+
         .nav {
             text-align: center;
             margin: 20px 0;
         }
+
         .nav a {
             margin: 10px;
             text-decoration: none;
             color: black;
             font-weight: bold;
         }
+
         .content {
             flex: 1;
             padding: 20px;
             text-align: center;
         }
+
         .footer {
             text-align: center;
             padding: 10px;
@@ -104,6 +138,7 @@
         }
     </style>
 </head>
+
 <body>
     <h1 style="text-align: center;">Feedback Dashboard</h1>
 
@@ -152,13 +187,13 @@
 
     <div class="download" style="text-align: center;">
         <a href="{{ url_for('export_csv') }}">
-        <button class="btn btn-success">Download CSV</button></a>
+            <button class="btn btn-success">Download CSV</button></a>
 
     </div>
-     <div class="footer">
+    <div class="footer">
         © 2025 Feedback
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script id="chart-data" type="application/json">
     {{ rating_counts | tojson }}
@@ -166,4 +201,5 @@
     <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 
 </body>
+
 </html>
