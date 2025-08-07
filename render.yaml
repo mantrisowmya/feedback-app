@@ -3,10 +3,8 @@ services:
     name: feedback-app
     env: python
     plan: free
-    buildCommand: ""
+    buildCommand: pip install -r requirements.txt
     startCommand: gunicorn app:app
     envVars:
       - key: FLASK_ENV
         value: production
-      - key: PORT
-        value: 10000
