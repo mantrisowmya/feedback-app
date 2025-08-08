@@ -74,7 +74,6 @@
             width: 80%;
             border-collapse: collapse;
             table-layout: fixed;
-            word-wrap: break-word;
             background-color: #fff;
 
         }
@@ -138,6 +137,14 @@
             text-align: center;
             padding: 10px;
             background-color: #f2f2f2;
+        }
+
+        table>thead>tr>th:nth-child(3),
+        table>tbody>tr>td:nth-child(3) {
+            width: 200px !important;
+            white-space: normal !important;
+            overflow-wrap: anywhere !important;
+            word-break: break-word !important;
         }
     </style>
 </head>
